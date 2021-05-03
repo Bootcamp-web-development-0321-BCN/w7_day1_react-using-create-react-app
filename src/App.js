@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import ClassComponent from './ClassComponent';
+import FunctionalComponent from './FunctionalComponent';
+import Student from './Student';
 
 function App() {
+  const sayHello = (name) => {
+    console.log(`Hello, I'm ${name}`);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ClassComponent />
+      <FunctionalComponent />
+
+      <div className="students-container">
+        <Student sayHello={sayHello} studentAge={Math.floor(Math.random() * 30)} studentName="Laia" studentDescription="Soy Laia" studentImage="https://picsum.photos/seed/picsum/200/300" />
+        <Student sayHello={sayHello} studentAge={16} studentName="Jesi" studentDescription="Soy Jesi" surveyDone={true}/>
+        <Student sayHello={sayHello} studentAge={Math.floor(Math.random() * 30)} studentName="Joao" studentDescription="Soy Joao" />
+      </div>
     </div>
   );
 }
